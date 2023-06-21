@@ -14,7 +14,7 @@ jobs:
       id-token: write
       contents: read
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v3
     - name: build project
       uses: actions/setup-node@v3
@@ -32,4 +32,6 @@ jobs:
         aws s3 cp build/ s3://vissnusbucket/ --recursive
         aws cloudfront create-invalidation --distribution-id ${{secrets.CFID}} --paths "/*"
     
-    
+   
+
+
